@@ -64,7 +64,7 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Login</h1>
+								<h1>Blog Create</h1>
 								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
 								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
 							</div>
@@ -79,41 +79,42 @@
 			</div>
 		<!-- End Hero Section -->
 
-        <!-- Start Login Section -->
-
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login-wrap p-4 p-md-5">
-                        <h3 class="mb-4">Login</h3>
-                        <form action="#" class="login-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <label for="name" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Username">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
-                                        <input type="submit" value="Login" class="btn btn-primary">
-                                    </div>
-                                    <p class="text-center">Don't have an account? <a href="register.html">Register</a></p>
-                                </div>
+		
+        <!-- Start Blog Create Section -->
+        <section class="blog-create py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form action="#" class="row g-3">
+                            <div class="col-12">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Title">
+                            </div>
+                            <div class="col-12">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="content" class="form-label">Category</label>
+                                <select id="category" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- End Login Section -->
+        </section>
 		
 
 		<!-- Start Footer Section -->
