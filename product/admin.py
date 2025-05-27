@@ -1,9 +1,30 @@
 from django.contrib import admin
-from product.models import ProductCategory, Product, ProductImage, ProductReview
+from product.models import ProductCategory, Product, ProductImage, ProductReview, ProductTag
 
 # Register your models here.
 
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+
+@admin.register(Product)
+class ProductAdminModel(admin.ModelAdmin):
+    list_display = ['id', 'title', 'price', 'category', 'quantity', 'get_tags']
+    list_display_links = ['id', 'title']
+    list_editable = ['category']
+    # readonly_fields = ['price']
+    list_filter = ['category', 'price']
+    # list_per_page = 2
+    search_fields = ['title', 'category__title']
+    inlines = [ProductImageInline]
+
+    def get_tags(self, obj):
+        tags = []
+        for tag in obj.tags.all():
+            tags.append(tag.title)
+        return tags
+
 admin.site.register(ProductCategory)
-admin.site.register(Product)
-admin.site.register(ProductImage)
+
 admin.site.register(ProductReview)
+admin.site.register(ProductTag)
+

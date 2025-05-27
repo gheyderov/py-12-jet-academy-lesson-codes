@@ -35,7 +35,7 @@
             <div class="row justify-content-between">
                 <div class="col-lg-5">
                     <div class="intro-excerpt">
-                        <h1>Modern Chair</h1>
+                        <h1>{{product.title}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -54,7 +54,7 @@
                 <!-- Main Product Image -->
                 <div class="col-lg-6">
                     <div class="shop-detail-img">
-                        <img src="{% static 'images/product-1.png' %}" alt="Modern Chair" class="img-fluid main-image">
+                        <img src="{{product.cover_image.url}}" alt="Modern Chair" class="img-fluid main-image">
                     </div>
                     <!-- Related Images -->
                     <div class="related-images mt-4">
@@ -75,8 +75,8 @@
                 <!-- Product Details -->
                 <div class="col-lg-6">
                     <div class="shop-detail-content">
-                        <h2>Modern Chair</h2>
-                        <p class="price">$120.00</p>
+                        <h2>{{product.title}}</h2>
+                        <p class="price">${{product.price}}</p>
                         <p class="mb-4">
                             Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
                             Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
