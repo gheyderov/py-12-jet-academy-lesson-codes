@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static tags %}
 
 {% block title %}
 <title>About Page </title>
@@ -108,6 +108,8 @@
 		<!-- Start Testimonial Slider -->
 		{% include 'includes/testimonial.html' %}
 		<!-- End Testimonial Slider -->
+
+		{% get_similar_products %}
 
 {% endblock %}		
 
