@@ -31,4 +31,17 @@ class ContactForm(forms.ModelForm):
                 'rows' : 5,
                 'placeholder' : 'Enter your message'
             })
+
+
         }
+
+    def clean_email(self):
+        value = self.cleaned_data['email']
+        if not value.endswith('gmail.com'):
+            raise forms.ValidationError('Email must be gmail.com! your email is not valid!')
+        return value
+    
+    def clean_first_name(self):
+        value = self.cleaned_data['first_name']
+        return value.upper()
+

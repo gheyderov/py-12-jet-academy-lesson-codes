@@ -1,4 +1,5 @@
 from django.db import models
+from core.validators import validate_gmail
 
 # Create your models here.
 
