@@ -35,6 +35,7 @@
                     <div class="login-wrap p-4 p-md-5">
                         <h3 class="text-center mb-4">Register</h3>
                         <form action="" class="login-form" method="post" enctype="multipart/form-data">
+                            {{ form.non_field_errors }}
 							{% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">

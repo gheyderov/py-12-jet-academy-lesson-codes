@@ -47,6 +47,7 @@
 					<li><a class="nav-link" href="services.html">Services</a></li>
 					<li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
 					<li><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+					<li>{{request.user}}</li>
 				</ul>
 				<!-- Search input -->
 				<form class="d-flex">
