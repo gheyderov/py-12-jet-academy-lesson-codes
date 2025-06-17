@@ -36,6 +36,7 @@ class Product(AbstractModel):
     description = models.TextField('description')
     cover_image = models.ImageField('cover_image', upload_to='product_images/')
     quantity = models.IntegerField('quantity', default=1)
+    slug = models.SlugField('slug', max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.title
