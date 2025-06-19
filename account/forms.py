@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 
 class ProfileForm(forms.ModelForm):
@@ -32,8 +33,8 @@ class ProfileForm(forms.ModelForm):
         
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={
+class LoginForm(AuthenticationForm):
+    username = UsernameField(widget=forms.TextInput(attrs={
         'class' : 'form-control',
     }))
     password = forms.CharField(widget=forms.PasswordInput(attrs={

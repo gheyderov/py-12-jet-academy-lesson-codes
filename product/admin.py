@@ -1,6 +1,6 @@
 from django.contrib import admin
 from product.models import ProductCategory, Product, ProductImage, ProductReview, ProductTag
-
+from modeltranslation.admin import TranslationAdmin
 # Register your models here.
 
 class ProductImageInline(admin.TabularInline):
@@ -23,7 +23,11 @@ class ProductAdminModel(admin.ModelAdmin):
             tags.append(tag.title)
         return tags
 
-admin.site.register(ProductCategory)
+
+class ProductCategoryAdmin(TranslationAdmin):
+    list_display = 'title',
+
+admin.site.register(ProductCategory, ProductCategoryAdmin)
 
 admin.site.register(ProductReview)
 admin.site.register(ProductTag)

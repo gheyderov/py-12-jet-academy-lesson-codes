@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-19 15:25+0000\n"
+"PO-Revision-Date: 2025-06-19 15:46+0000\n"
+"Last-Translator: Gunduz Heydarov <g.heyderov@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: core/templates/base.html:45
+msgid "Home"
+msgstr "Ana səhifə"
+
+#: core/templates/base.html:47
+msgid "Shop"
+msgstr "Məhsullar"
+
+#: core/templates/base.html:48
+msgid "About us"
+msgstr "Haqqımızda"
+
+#: core/templates/base.html:50
+msgid "Blog"
+msgstr "Bloqlar"
+
+#: core/views.py:24
+msgid "Message was sent successfully!"
+msgstr "Mesajınız uğurla göndərildi!"

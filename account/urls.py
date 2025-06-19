@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path, re_path
-from account.views import login, register, logout, profile, activate
+from account.views import UserLoginView, register, logout, profile, activate
 
 urlpatterns = [
-    path('login/', login, name = 'login'),
+    path('login/', UserLoginView.as_view(), name = 'login'),
     path('logout/', logout, name = 'logout'),
     path('register/', register, name = 'register'),
     path('profile/', profile, name = 'profile'),

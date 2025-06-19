@@ -9,6 +9,11 @@ class User(AbstractUser):
     phone = models.CharField('phone', max_length=100, null=True, blank=True)
     bio = models.TextField('bio', null=True, blank=True)
     ips = ArrayField(models.GenericIPAddressField(), null=True, blank=True) # [127.9.9.1, 123.34.56.78]
+    email = models.EmailField("email address", unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = '',
+
 
     def get_profile_photo(self):
         if self.photo:
