@@ -22,8 +22,7 @@ class Contact(AbstractModel):
     
 
 class Subscriber(AbstractModel):
-    name = models.CharField('name', max_length=200)
-    email = models.EmailField('email', max_length=100)
+    email = models.EmailField('email', max_length=100, unique=True)
 
     def __str__(self):
         return self.email

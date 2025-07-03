@@ -1,5 +1,16 @@
 from rest_framework import serializers
 from product.models import ProductCategory, Product, ProductTag
+from core.models import Subscriber
+
+
+class SubscriberSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Subscriber
+        fields = [
+            'email'
+        ]
+
 
 
 class ProductTagSerializer(serializers.ModelSerializer):
