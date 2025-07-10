@@ -13,6 +13,6 @@ urlpatterns = [
     path(
         "product/<int:pk>/", ProductUpdateDeleteAPIView.as_view(), name="product_update"
     ),
-    path('subscriber/', SubscriberCreateAPIView.as_view(), name = 'subscriber')
-    # path('producttags/', producttags, name = 'producttags')
+    path('subscriber/', SubscriberCreateAPIView.as_view(), name = 'subscriber'),
+    path('tags/', producttags, name = 'producttags')
 ]

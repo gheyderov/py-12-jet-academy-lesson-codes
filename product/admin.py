@@ -8,7 +8,7 @@ class ProductImageInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdminModel(admin.ModelAdmin):
-    list_display = ['id', 'title', 'price', 'category', 'quantity', 'get_tags']
+    list_display = ['id', 'title', 'price', 'category', 'quantity', 'get_tags', 'created_at']
     list_display_links = ['id', 'title']
     list_editable = ['category']
     # readonly_fields = ['price']

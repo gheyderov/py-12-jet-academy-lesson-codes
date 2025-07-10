@@ -18,6 +18,7 @@ class ProductTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductTag
         fields = [
+            'id',
             'title'
         ]
 
