@@ -1,14 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from product.models import ProductCategory
 from core.forms import ContactForm
 from django.contrib import messages
 from django.views.generic import CreateView
 from django.utils.translation import gettext as _
-
+from core.tasks import export_data
 
 
 # Create your views here.
+
+def export_view(request):
+    export_data.delay()
+    return HttpResponse('success')
 
 
 def homepage(request):

@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     "rosetta",
     "rest_framework",
     "rest_framework_simplejwt",
-     "corsheaders",
+    "corsheaders",
+    "django_celery_beat",
+    "drf_yasg",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -191,5 +193,10 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "g.heyderov@gmail.com"
-EMAIL_HOST_PASSWORD = "password example"
+EMAIL_HOST_PASSWORD = "odkx ykjg qkxn oqif"
 EMAIL_PORT = 587
+
+
+# Celery settings
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
