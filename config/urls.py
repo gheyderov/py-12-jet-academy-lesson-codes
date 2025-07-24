@@ -62,5 +62,6 @@ urlpatterns += i18n_patterns(
     path("", include("account.urls")),
     path("", include("product.urls")),
     path("", include("blog.urls")),
+    path("", include("order.urls")),
     re_path(r"^rosetta/", include("rosetta.urls")),
 )

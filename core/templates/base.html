@@ -11,19 +11,23 @@
 
 	<meta name="description" content="" />
 	<meta name="keywords" content="bootstrap, bootstrap4" />
-    {% block title %}
+	{% block title %}
 	<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
-    {% endblock %}
+	{% endblock %}
+
+	<script>
+		let user = "{{request.user}}"
+	</script>
 
 	<!-- Bootstrap CSS -->
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
 	<link href="{% static 'css/style.css' %}" rel="stylesheet">
-    {% block css %}
+	{% block css %}
 
-    {% endblock %}
+	{% endblock %}
 </head>
 
 <body>
@@ -31,74 +35,77 @@
 	<!-- Start Header/Navigation -->
 	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-            aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+				aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-        <div class="collapse navbar-collapse" id="navbarsFurni">
-            <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
-                </li>
-                <li><a class="nav-link" href="{% url 'shop' %}">{% trans 'Shop' %}</a></li>
-                <li><a class="nav-link" href="{% url 'about' %}">{% trans 'About us' %}</a></li>
-                <li><a class="nav-link" href="services.html">Services</a></li>
-                <li><a class="nav-link" href="blog.html">{% trans 'Blog' %}</a></li>
-                <li><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
-				<li>
-					<form action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}
-                        <select name="language" onchange="this.form.submit()" style="width: 60px;
+			<div class="collapse navbar-collapse" id="navbarsFurni">
+				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+					<li class="nav-item active">
+						<a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
+					</li>
+					<li><a class="nav-link" href="{% url 'shop' %}">{% trans 'Shop' %}</a></li>
+					<li><a class="nav-link" href="{% url 'about' %}">{% trans 'About us' %}</a></li>
+					<li><a class="nav-link" href="services.html">Services</a></li>
+					<li><a class="nav-link" href="blog.html">{% trans 'Blog' %}</a></li>
+					<li><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+					<li>
+						<form action="{% url 'set_language' %}" method="post">
+							{% csrf_token %}
+							<select name="language" onchange="this.form.submit()" style="width: 60px;
                         height: 48px;
                         border-radius: 5px;
                         padding: 9px;">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                            <option class="nav-link" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
-                                selected{% endif %}> {#8#}
-                                {{ language.code }}
-                            </option>
-                            {% endfor %}
-                        </select>
-                    </form>
-				</li>
-   
-            </ul>
+								{% get_current_language as LANGUAGE_CODE %}
+								{% get_available_languages as LANGUAGES %}
+								{% get_language_info_list for LANGUAGES as languages %}
+								{% for language in languages %}
+								<option class="nav-link" value="{{ language.code }}"
+									{% if language.code == LANGUAGE_CODE %} selected{% endif %}> {#8#}
+									{{ language.code }}
+								</option>
+								{% endfor %}
+							</select>
+						</form>
+					</li>
 
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{% static 'images/user.svg' %}" alt="User Icon">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-						{% if request.user.is_authenticated %}
-                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-						{% else %}
-                        <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-						{% endif %}
-                    </ul>
-                </li>
-                <li><a class="nav-link" href=""><img src="{% static 'images/cart.svg' %}" alt="Cart"></a></li>
-                <li><a class="nav-link" href=""><img src="{% static 'images/wishlist.png' %}" style="width: 25px;" alt="Cart"></a></li>
-            </ul>
-        </div>
-    </div>
+				</ul>
 
-</nav>
-<!-- End Header/Navigation -->
+				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="{% static 'images/user.svg' %}" alt="User Icon">
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+							{% if request.user.is_authenticated %}
+							<li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+							<li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+							{% else %}
+							<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+							{% endif %}
+						</ul>
+					</li>
+					<li><a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg' %}"
+								alt="Cart"></a></li>
+					<li><a class="nav-link" href=""><img src="{% static 'images/wishlist.png' %}" style="width: 25px;"
+								alt="Cart"></a></li>
+				</ul>
+			</div>
+		</div>
+
+	</nav>
+	<!-- End Header/Navigation -->
 	<!-- End Header/Navigation -->
 
-    {% block content  %}
-	
+	{% block content  %}
 
-    {% endblock %}
+
+	{% endblock %}
 
 
 	<!-- Start Footer Section -->
@@ -112,8 +119,9 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="subscription-form">
-						<h3 class="d-flex align-items-center"><span class="me-1"><img src="{% static 'images/envelope-outline.svg' %}"
-									alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+						<h3 class="d-flex align-items-center"><span class="me-1"><img
+									src="{% static 'images/envelope-outline.svg' %}" alt="Image"
+									class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
 
 						<form action="" method="post" class="row g-3" id="subscription-form">
 							{% csrf_token %}
@@ -217,13 +225,14 @@
 	<script src="{% static 'js/tiny-slider.js' %}"></script>
 	<script src="{% static 'js/subscriber.js' %}"></script>
 	<script src="{% static 'js/custom.js' %}"></script>
-<!-- Bootstrap 5 JS (bunları <body> sonunda yerləşdirin) -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-c
-    {% block js %}
+	<script src="{% static 'js/cart.js' %}"></script>
+	<!-- Bootstrap 5 JS (bunları <body> sonunda yerləşdirin) -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+	c
+	{% block js %}
 
-    {% endblock %}
+	{% endblock %}
 </body>
 
 </html>
